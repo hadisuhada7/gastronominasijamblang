@@ -292,7 +292,37 @@ export default function VisitorData() {
             </div>
           ) : (
             <>
-              <div className="overflow-x-auto">
+              {/* Mobile card view */}
+              <div className="block md:hidden divide-y divide-[#F2EBE1]">
+                {pageData.map((v, idx) => {
+                  const rowNum = (currentPage - 1) * PAGE_SIZE + idx + 1;
+                  return (
+                    <div key={v.id} className="px-5 py-4 hover:bg-[#FDFAF5] transition-colors">
+                      <div className="flex items-start justify-between gap-3 mb-2">
+                        <span className="font-semibold text-[#2A2421] text-base leading-snug">{v.namaLengkap}</span>
+                        <span className="text-xs text-[#B0A498] font-medium shrink-0">#{rowNum}</span>
+                      </div>
+                      <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 text-sm">
+                        <div>
+                          <span className="text-[#B0A498] text-xs uppercase tracking-wider">{t.colCity}</span>
+                          <p className="text-[#4A3F38] mt-0.5">{v.domisili}</p>
+                        </div>
+                        <div>
+                          <span className="text-[#B0A498] text-xs uppercase tracking-wider">{t.colDate}</span>
+                          <p className="text-[#6E635A] mt-0.5">{formatDate(v.tanggal, t.locale)}</p>
+                        </div>
+                        <div className="col-span-2">
+                          <span className="text-[#B0A498] text-xs uppercase tracking-wider">{t.colEmail}</span>
+                          <p className="text-[#4A3F38] mt-0.5 break-all">{v.email}</p>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Desktop table view */}
+              <div className="hidden md:block overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="bg-[#F7F2EA] border-b border-[#E5D9C5]">
