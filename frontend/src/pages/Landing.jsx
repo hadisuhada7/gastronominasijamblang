@@ -111,7 +111,7 @@ const Navbar = ({ lang, setLang, t }) => {
             }`}
           >
             <ClipboardList className="w-3.5 h-3.5" />
-            Daftar Kunjungan
+            {lang === "id" ? "Daftar Kunjungan" : "Register Visit"}
           </Link>
           <div
             data-testid="language-toggle"
@@ -170,7 +170,7 @@ const Navbar = ({ lang, setLang, t }) => {
               className="flex-1 inline-flex items-center justify-center gap-2 bg-[#2C4C3B] text-white text-sm font-semibold py-2.5 rounded-xl hover:bg-[#3a6050] transition-all"
             >
               <ClipboardList className="w-4 h-4" />
-              Daftar Kunjungan
+              {lang === "id" ? "Daftar Kunjungan" : "Register Visit"}
             </Link>
             {/* <Link
               to="/visitor-data"
@@ -178,7 +178,7 @@ const Navbar = ({ lang, setLang, t }) => {
               className="flex-1 inline-flex items-center justify-center gap-2 border border-[#E5D9C5] text-[#2A2421] text-sm font-semibold py-2.5 rounded-xl hover:bg-[#F7F2EA] transition-all"
             >
               <LayoutList className="w-4 h-4" />
-              Data Pengunjung
+              {lang === "id" ? "Data Pengunjung" : "Visitor Data"}
             </Link> */}
           </div>
         </div>
@@ -564,7 +564,7 @@ const Ethics = ({ t }) => (
 );
 
 /* ---------------- Footer ---------------- */
-const Footer = ({ t }) => (
+const Footer = ({ t, lang }) => (
   <footer data-testid="footer" className="bg-[#1A140F] text-[#EFE7D9] py-14">
     <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
       <div className="flex items-center gap-3">
@@ -580,7 +580,7 @@ const Footer = ({ t }) => (
           className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#D19C4C] hover:text-[#e0ad5f] transition-colors"
         >
           <ClipboardList className="w-3.5 h-3.5" />
-          Daftar Kunjungan
+          {lang === "id" ? "Daftar Kunjungan" : "Register Visit"}
         </Link>
         <span className="hidden sm:inline text-[#EFE7D9]/30">·</span>
         <Link
@@ -588,7 +588,7 @@ const Footer = ({ t }) => (
           className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#EFE7D9]/50 hover:text-[#EFE7D9]/80 transition-colors"
         >
           <LayoutList className="w-3.5 h-3.5" />
-          Data Pengunjung
+          {lang === "id" ? "Data Pengunjung" : "Visitor Data"}
         </Link>
       </div> */}
       <p className="text-xs text-[#EFE7D9]/50">{t.footer.rights}</p>
@@ -622,7 +622,7 @@ export default function Landing() {
         <Nutrition t={t} />
         <Ethics t={t} />
       </main>
-      <Footer t={t} />
+      <Footer t={t} lang={lang} />
       <button
         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         aria-label="Scroll to top"

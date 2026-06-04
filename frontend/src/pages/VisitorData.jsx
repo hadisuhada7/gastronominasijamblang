@@ -12,6 +12,67 @@ import {
   Search,
 } from "lucide-react";
 
+const DATA_TEXT = {
+  id: {
+    overline: "Data Pengunjung",
+    title: "Daftar Kunjungan",
+    totalLabel: "pengunjung terdaftar",
+    exportBtn: "Export ke Excel",
+    deleteAllBtn: "Hapus Semua",
+    searchPlaceholder: "Cari nama, domisili, atau email…",
+    confirmDelete: "Hapus semua data pengunjung? Tindakan ini tidak dapat dibatalkan.",
+    backHome: "Kembali ke Beranda",
+    emptyNoData: "Belum ada data pengunjung",
+    emptyNoDataDesc: "Data akan muncul setelah pengunjung mengisi formulir kunjungan",
+    emptyNoResult: "Tidak ada hasil ditemukan",
+    emptyNoResultDesc: "Coba kata kunci yang berbeda",
+    openForm: "Buka Form Kunjungan",
+    colNo: "No",
+    colName: "Nama Lengkap",
+    colCity: "Domisili",
+    colEmail: "Email",
+    colDate: "Tanggal Kunjungan",
+    showing: "Menampilkan",
+    to: "–",
+    of: "dari",
+    entries: "data",
+    sheetName: "Data Pengunjung",
+    excelColName: "Nama Lengkap",
+    excelColCity: "Domisili",
+    excelColDate: "Tanggal Kunjungan",
+    locale: "id-ID",
+  },
+  en: {
+    overline: "Visitor Data",
+    title: "Visitor List",
+    totalLabel: "visitors registered",
+    exportBtn: "Export to Excel",
+    deleteAllBtn: "Delete All",
+    searchPlaceholder: "Search name, city, or email…",
+    confirmDelete: "Delete all visitor data? This action cannot be undone.",
+    backHome: "Back to Home",
+    emptyNoData: "No visitor data yet",
+    emptyNoDataDesc: "Data will appear after visitors fill in the registration form",
+    emptyNoResult: "No results found",
+    emptyNoResultDesc: "Try a different keyword",
+    openForm: "Open Visitor Form",
+    colNo: "No",
+    colName: "Full Name",
+    colCity: "City",
+    colEmail: "Email",
+    colDate: "Visit Date",
+    showing: "Showing",
+    to: "–",
+    of: "of",
+    entries: "entries",
+    sheetName: "Visitor Data",
+    excelColName: "Full Name",
+    excelColCity: "City",
+    excelColDate: "Visit Date",
+    locale: "en-US",
+  },
+};
+
 const STORAGE_KEY = "nasi_jamblang_visitors";
 const PAGE_SIZE = 10;
 
@@ -23,9 +84,9 @@ function getVisitors() {
   }
 }
 
-function formatDate(iso) {
+function formatDate(iso, locale) {
   try {
-    return new Intl.DateTimeFormat("id-ID", {
+    return new Intl.DateTimeFormat(locale, {
       day: "2-digit",
       month: "short",
       year: "numeric",
@@ -41,6 +102,8 @@ export default function VisitorData() {
   const [visitors, setVisitors] = useState(getVisitors);
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
+  const [lang, setLang] = useState("id");
+  const t = DATA_TEXT[lang];
 
   const filtered = useMemo(() => {
     const q = search.toLowerCase().trim();
@@ -66,11 +129,7 @@ export default function VisitorData() {
   };
 
   const handleClearAll = () => {
-    if (
-      window.confirm(
-        "Hapus semua data pengunjung? Tindakan ini tidak dapat dibatalkan."
-      )
-    ) {
+    if (window.confirm(t.confirmDelete)) {
       localStorage.removeItem(STORAGE_KEY);
       setVisitors([]);
       setPage(1);
@@ -82,10 +141,10 @@ export default function VisitorData() {
 
     const rows = filtered.map((v, i) => ({
       No: i + 1,
-      "Nama Lengkap": v.namaLengkap,
-      Domisili: v.domisili,
+      [t.excelColName]: v.namaLengkap,
+      [t.excelColCity]: v.domisili,
       Email: v.email,
-      "Tanggal Kunjungan": formatDate(v.tanggal),
+      [t.excelColDate]: formatDate(v.tanggal, t.locale),
     }));
 
     const ws = XLSX.utils.json_to_sheet(rows);
@@ -100,7 +159,7 @@ export default function VisitorData() {
     ];
 
     const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "Data Pengunjung");
+    XLSX.utils.book_append_sheet(wb, ws, t.sheetName);
 
     const now = new Date();
     const stamp = `${now.getFullYear()}${String(now.getMonth() + 1).padStart(2, "0")}${String(now.getDate()).padStart(2, "0")}`;
@@ -121,13 +180,33 @@ export default function VisitorData() {
               Nasi Jamblang
             </span>
           </Link>
-          <Link
-            to="/"
-            className="inline-flex items-center gap-1.5 text-sm text-[#6E635A] hover:text-[#2C4C3B] transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            Kembali ke Beranda
-          </Link>
+
+          <div className="flex items-center gap-4">
+            {/* Language toggle */}
+            <div className="flex items-center rounded-full border border-[#E5D9C5] p-0.5">
+              {["id", "en"].map((l) => (
+                <button
+                  key={l}
+                  onClick={() => setLang(l)}
+                  className={`px-3 py-1 text-xs font-semibold rounded-full transition-all ${
+                    lang === l
+                      ? "bg-[#2C4C3B] text-white"
+                      : "text-[#6E635A] hover:text-[#2C4C3B]"
+                  }`}
+                >
+                  {l.toUpperCase()}
+                </button>
+              ))}
+            </div>
+
+            {/* <Link
+              to="/"
+              className="hidden sm:inline-flex items-center gap-1.5 text-sm text-[#6E635A] hover:text-[#2C4C3B] transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4" />
+              {t.backHome}
+            </Link> */}
+          </div>
         </div>
       </header>
 
@@ -138,20 +217,20 @@ export default function VisitorData() {
           <div className="flex items-center gap-3 mb-3">
             <span className="w-8 h-px bg-[#D19C4C]" />
             <span className="uppercase tracking-[0.2em] text-xs font-semibold text-[#8B3A23]">
-              Data Pengunjung
+              {t.overline}
             </span>
           </div>
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
             <div>
               <h1 className="font-serif text-4xl text-[#2A2421] leading-tight">
-                Daftar Kunjungan
+                {t.title}
               </h1>
               <p className="text-[#6E635A] mt-1 text-sm">
                 Total{" "}
                 <span className="font-semibold text-[#2C4C3B]">
                   {visitors.length}
                 </span>{" "}
-                pengunjung terdaftar
+                {t.totalLabel}
               </p>
             </div>
 
@@ -162,7 +241,7 @@ export default function VisitorData() {
                 className="inline-flex items-center gap-2 bg-[#2C4C3B] text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-[#3a6050] active:scale-[0.97] transition-all disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 <Download className="w-4 h-4" />
-                Export ke Excel
+                {t.exportBtn}
               </button>
 
               {visitors.length > 0 && (
@@ -171,7 +250,7 @@ export default function VisitorData() {
                   className="inline-flex items-center gap-2 border border-red-200 text-red-500 text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-red-50 active:scale-[0.97] transition-all"
                 >
                   <Trash2 className="w-4 h-4" />
-                  Hapus Semua
+                  {t.deleteAllBtn}
                 </button>
               )}
             </div>
@@ -185,7 +264,7 @@ export default function VisitorData() {
             type="text"
             value={search}
             onChange={handleSearch}
-            placeholder="Cari nama, domisili, atau email…"
+            placeholder={t.searchPlaceholder}
             className="w-full h-10 pl-10 pr-4 rounded-xl border border-[#E5D9C5] bg-white text-[#2A2421] placeholder:text-[#C5BAB0] text-sm outline-none focus:ring-2 focus:ring-[#2C4C3B]/20 focus:border-[#2C4C3B] transition-all"
           />
         </div>
@@ -196,19 +275,17 @@ export default function VisitorData() {
             <div className="flex flex-col items-center justify-center py-24 text-center px-6">
               <Users className="w-12 h-12 text-[#D9CFC6] mb-4" strokeWidth={1.2} />
               <p className="font-serif text-xl text-[#2A2421] mb-1">
-                {search ? "Tidak ada hasil ditemukan" : "Belum ada data pengunjung"}
+                {search ? t.emptyNoResult : t.emptyNoData}
               </p>
               <p className="text-[#B0A498] text-sm">
-                {search
-                  ? "Coba kata kunci yang berbeda"
-                  : "Data akan muncul setelah pengunjung mengisi formulir kunjungan"}
+                {search ? t.emptyNoResultDesc : t.emptyNoDataDesc}
               </p>
               {!search && (
                 <Link
                   to="/visitor-form"
                   className="mt-6 inline-flex items-center gap-2 bg-[#2C4C3B] text-white text-sm font-semibold px-5 py-2.5 rounded-xl hover:bg-[#3a6050] transition-all"
                 >
-                  Buka Form Kunjungan
+                  {t.openForm}
                   <ChevronRight className="w-4 h-4" />
                 </Link>
               )}
@@ -220,19 +297,19 @@ export default function VisitorData() {
                   <thead>
                     <tr className="bg-[#F7F2EA] border-b border-[#E5D9C5]">
                       <th className="text-left px-5 py-3.5 text-xs font-semibold uppercase tracking-wider text-[#6E635A] w-12">
-                        No
+                        {t.colNo}
                       </th>
                       <th className="text-left px-5 py-3.5 text-xs font-semibold uppercase tracking-wider text-[#6E635A]">
-                        Nama Lengkap
+                        {t.colName}
                       </th>
                       <th className="text-left px-5 py-3.5 text-xs font-semibold uppercase tracking-wider text-[#6E635A]">
-                        Domisili
+                        {t.colCity}
                       </th>
                       <th className="text-left px-5 py-3.5 text-xs font-semibold uppercase tracking-wider text-[#6E635A]">
-                        Email
+                        {t.colEmail}
                       </th>
                       <th className="text-left px-5 py-3.5 text-xs font-semibold uppercase tracking-wider text-[#6E635A] whitespace-nowrap">
-                        Tanggal Kunjungan
+                        {t.colDate}
                       </th>
                     </tr>
                   </thead>
@@ -257,7 +334,7 @@ export default function VisitorData() {
                             {v.email}
                           </td>
                           <td className="px-5 py-4 text-[#6E635A] whitespace-nowrap">
-                            {formatDate(v.tanggal)}
+                            {formatDate(v.tanggal, t.locale)}
                           </td>
                         </tr>
                       );
@@ -270,19 +347,19 @@ export default function VisitorData() {
               {totalPages > 1 && (
                 <div className="flex items-center justify-between px-5 py-4 border-t border-[#F2EBE1]">
                   <p className="text-xs text-[#B0A498]">
-                    Menampilkan{" "}
+                    {t.showing}{" "}
                     <span className="text-[#2A2421] font-semibold">
                       {(currentPage - 1) * PAGE_SIZE + 1}
                     </span>{" "}
-                    –{" "}
+                    {t.to}{" "}
                     <span className="text-[#2A2421] font-semibold">
                       {Math.min(currentPage * PAGE_SIZE, filtered.length)}
                     </span>{" "}
-                    dari{" "}
+                    {t.of}{" "}
                     <span className="text-[#2A2421] font-semibold">
                       {filtered.length}
                     </span>{" "}
-                    data
+                    {t.entries}
                   </p>
 
                   <div className="flex items-center gap-1.5">
