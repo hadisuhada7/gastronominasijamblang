@@ -24,11 +24,29 @@ const Overline = ({ children }) => (
 const Navbar = ({ lang, setLang, t }) => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        if (visible[0]) setActive(visible[0].target.id);
+      },
+      { rootMargin: "-45% 0px -45% 0px", threshold: [0, 0.25, 0.5, 1] }
+    );
+    NAV_KEYS.forEach((k) => {
+      const el = document.getElementById(k);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
   }, []);
 
   const go = (id) => {
@@ -60,12 +78,24 @@ const Navbar = ({ lang, setLang, t }) => {
             <button
               key={k}
               data-testid={`nav-link-${k}`}
+              data-active={active === k}
               onClick={() => go(k)}
-              className={`text-sm tracking-wide transition-colors hover:text-[#D19C4C] ${
-                scrolled ? "text-[#6E635A]" : "text-white/85"
+              className={`relative text-sm tracking-wide transition-colors hover:text-[#D19C4C] ${
+                active === k
+                  ? scrolled
+                    ? "text-[#2C4C3B] font-semibold"
+                    : "text-[#E6C58A] font-semibold"
+                  : scrolled
+                  ? "text-[#6E635A]"
+                  : "text-white/85"
               }`}
             >
               {t.nav[k]}
+              <span
+                className={`absolute -bottom-1.5 left-0 h-0.5 rounded-full bg-[#D19C4C] transition-all duration-300 ${
+                  active === k ? "w-full" : "w-0"
+                }`}
+              />
             </button>
           ))}
         </nav>
@@ -113,7 +143,9 @@ const Navbar = ({ lang, setLang, t }) => {
                 key={k}
                 data-testid={`mobile-nav-link-${k}`}
                 onClick={() => go(k)}
-                className="text-left py-2.5 text-[#2A2421] border-b border-[#E5D9C5]/60"
+                className={`text-left py-2.5 border-b border-[#E5D9C5]/60 ${
+                  active === k ? "text-[#2C4C3B] font-semibold" : "text-[#2A2421]"
+                }`}
               >
                 {t.nav[k]}
               </button>
