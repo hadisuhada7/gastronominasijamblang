@@ -27,7 +27,7 @@ export const CONTENT = {
       overline: "Warisan Kuliner Pesisir Cirebon",
       title: "Gastronomi Nasi Jamblang",
       subtitle:
-        "Sebuah perjalanan rasa, sejarah, dan kebersamaan — nasi pulen yang dibungkus daun jati, lahir dari kearifan masyarakat Desa Jamblang.",
+        "Merayakan harmoni antara rasa, sejarah, dan kebersamaan. Nikmati kelembutan nasi yang dibalut secara tradisional dengan daun jati.",
       ctaPrimary: "Telusuri Cerita",
       ctaSecondary: "Lihat Bahan Utama",
     },
@@ -59,7 +59,7 @@ export const CONTENT = {
           tag: "Nilai Sosial",
           title: "Penghargaan pada Selera",
           body:
-            "Tradisi memilih lauk sesuai selera menunjukkan penghargaan terhadap kebiasaan individu dalam kebersamaan — setiap orang merdeka meracik porsinya sendiri.",
+            "Tradisi memilih lauk sesuai selera menunjukkan penghargaan terhadap kebiasaan individu dalam kebersamaan, setiap orang merdeka meracik porsinya sendiri.",
         },
       ],
     },
@@ -80,7 +80,7 @@ export const CONTENT = {
           name: "Nasi Putih",
           role: "Kearifan Lokal",
           body:
-            "Nasi putih pulen dibungkus dalam porsi kecil — berasal dari kebiasaan masyarakat Jamblang menyiapkan bekal praktis bagi pekerja pembangunan jalan dan rel kereta.",
+            "Nasi putih pulen dibungkus dalam porsi kecil, berasal dari kebiasaan masyarakat Jamblang menyiapkan bekal praktis bagi pekerja pembangunan jalan dan rel kereta.",
           img: IMAGES.riceLeaf,
         },
         {
@@ -116,7 +116,7 @@ export const CONTENT = {
       overline: "Teknik & Metode",
       title: "Tangan Tradisi, Bara yang Stabil",
       lead:
-        "Nasi putih dibungkus daun jati lalu disajikan dengan sistem prasmanan — pelanggan memilih sendiri beragam lauk sesuai selera, mulai dari cumi hitam, tahu tempe, sate kentang, hingga ikan asin.",
+        "Nasi putih dibungkus daun jati lalu disajikan dengan sistem prasmanan. Pelanggan memilih sendiri beragam lauk sesuai selera, mulai dari cumi hitam, tahu tempe, sate kentang, hingga ikan asin.",
       tools: [
         {
           name: "Bakul Anyaman Bambu",
@@ -142,7 +142,7 @@ export const CONTENT = {
       overline: "Tasting · Pencicipan",
       title: "Profil Sensorik yang Harmonis",
       lead:
-        "Perpaduan harmonis antara nasi pulen beraroma daun jati dengan beragam lauk bercita rasa gurih, manis, pedas, dan umami khas Cirebon. Setiap suapan menghadirkan kombinasi tekstur — dari nasi yang lembut hingga lauk yang renyah, empuk, atau kenyal.",
+        "Perpaduan harmonis antara nasi pulen beraroma daun jati dengan beragam lauk bercita rasa gurih, manis, pedas, dan umami khas Cirebon. Setiap suapan menghadirkan kombinasi tekstur dari nasi yang lembut hingga lauk yang renyah, empuk, atau kenyal.",
       notes: [
         { label: "Nasi Pulen", desc: "Tekstur lembut, butiran nasi yang menyatu hangat." },
         { label: "Aroma Daun Jati", desc: "Wangi khas yang meresap, tak ditemukan pada nasi bungkus biasa." },
@@ -150,7 +150,7 @@ export const CONTENT = {
       ],
       aromaTitle: "Aroma",
       aromaBody:
-        "Diperkaya wangi rempah dan aneka lauk seperti cumi hitam, sambal goreng, semur, tahu-tempe, dan sate kentang yang menggugah selera — dibingkai aroma khas daun jati sebagai pembungkus tradisional.",
+        "Diperkaya wangi rempah dan aneka lauk seperti cumi hitam, sambal goreng, semur, tahu tempe, dan sate kentang yang menggugah selera, dibingkai aroma khas daun jati sebagai pembungkus tradisional.",
     },
     serving: {
       overline: "Serving · Penyajian",
@@ -184,7 +184,7 @@ export const CONTENT = {
       overline: "Nutrition Knowledge",
       title: "Sepiring yang Seimbang & Fleksibel",
       lead:
-        "Nasi Jamblang mengandung karbohidrat, protein, dan lemak dari kombinasi nasi putih serta beragam lauk. Nilai gizinya fleksibel — bergantung pada jenis dan jumlah lauk yang dipilih.",
+        "Nasi Jamblang mengandung karbohidrat, protein, dan lemak dari kombinasi nasi putih serta beragam lauk. Nilai gizinya fleksibel, bergantung pada jenis dan jumlah lauk yang dipilih.",
       tableTitle: "Kandungan Gizi (1 porsi nasi + lauk sederhana)",
       table: [
         { k: "Energi", v: "± 350–500 kkal" },
@@ -216,15 +216,15 @@ export const CONTENT = {
       quote:
         "Tradisi yang dijaga hari ini adalah identitas yang diwariskan esok.",
       points: [
-        "Komitmen para pelaku usaha mempertahankan daun jati sebagai pembungkus khas, meski kemasan modern lebih mudah diperoleh — menjaga identitas dan warisan kuliner Cirebon tetap lestari.",
+        "Komitmen para pelaku usaha mempertahankan daun jati sebagai pembungkus khas, meski kemasan modern lebih mudah diperoleh. Tetap menjaga identitas dan warisan kuliner Cirebon tetap lestari.",
         "Banyak warung masih mempertahankan resep turun-temurun dan proses memasak tradisional, termasuk tungku kayu bakar pada usaha keluarga, demi menjaga cita rasa autentik.",
         "Pelanggan dianjurkan mengambil lauk secukupnya dan menghargai keberagaman pilihan sebagai bentuk penghormatan terhadap hasil kerja para perajin dan juru masak.",
       ],
     },
     footer: {
       brand: "Gastronomi Nasi Jamblang",
-      tagline: "Warisan kuliner pesisir Cirebon — dibungkus daun jati, dijaga turun-temurun.",
-      rights: "Dipersembahkan untuk pelestarian kuliner Nusantara.",
+      tagline: "Warisan Kuliner Pesisir Cirebon",
+      rights: "Copyright © 2026 Gastronomi Nasi Jamblang – All Rights Reserved.",
     },
   },
 
@@ -244,7 +244,7 @@ export const CONTENT = {
       overline: "Culinary Heritage of Coastal Cirebon",
       title: "The Gastronomy of Nasi Jamblang",
       subtitle:
-        "A journey of flavour, history, and togetherness — fluffy rice wrapped in teak leaves, born from the wisdom of the people of Jamblang Village.",
+        "Celebrating the harmony of taste, history, and togetherness. Savour the softness of rice traditionally wrapped in teak leaves.",
       ctaPrimary: "Explore the Story",
       ctaSecondary: "See Key Ingredients",
     },
@@ -252,7 +252,7 @@ export const CONTENT = {
       overline: "History · Philosophy · Tradition · Social",
       title: "The Philosophy Behind a Single Wrap",
       lead:
-        "Nasi Jamblang is more than a dish — it is a representation of the history, tradition, and creativity of Cirebon's coastal people.",
+        "Nasi Jamblang is more than a dish, it is a representation of the history, tradition, and creativity of Cirebon's coastal people.",
       cards: [
         {
           tag: "Teak Leaf",
@@ -270,13 +270,13 @@ export const CONTENT = {
           tag: "Cultural Identity",
           title: "An Icon of Cirebon",
           body:
-            "A signature culinary icon of Cirebon, passed down through generations and widely known across Indonesia — not only as food, but as a living representation of history and coastal creativity.",
+            "A signature culinary icon of Cirebon, passed down through generations and widely known across Indonesia. Not only as food, but as a living representation of history and coastal creativity.",
         },
         {
           tag: "Social Value",
           title: "Honouring Personal Taste",
           body:
-            "The tradition of choosing dishes to one's taste honours individual habit within togetherness — everyone is free to compose their own portion.",
+            "The tradition of choosing dishes to one's taste honours individual habit within togetherness, everyone is free to compose their own portion.",
         },
       ],
     },
@@ -290,14 +290,14 @@ export const CONTENT = {
           name: "Teak Leaf",
           role: "Signature Wrapper",
           body:
-            "Chosen for its broad, strong leaves that lend a distinctive aroma soaking into the rice — while keeping the food fresh for longer.",
+            "Chosen for its broad, strong leaves that lend a distinctive aroma soaking into the rice. While keeping the food fresh for longer.",
           img: IMAGES.teakLeaf,
         },
         {
           name: "White Rice",
           role: "Local Wisdom",
           body:
-            "Fluffy white rice wrapped in small portions — a practice born from Jamblang locals preparing practical provisions for road and railway workers.",
+            "Fluffy white rice wrapped in small portions, a practice born from Jamblang locals preparing practical provisions for road and railway workers.",
           img: IMAGES.riceLeaf,
         },
         {
@@ -333,7 +333,7 @@ export const CONTENT = {
       overline: "Techniques & Methods",
       title: "Hands of Tradition, a Steady Ember",
       lead:
-        "White rice is wrapped in teak leaves then served buffet-style — guests pick their own dishes, from black squid and tofu-tempeh to potato skewers and salted fish.",
+        "White rice is wrapped in teak leaves then served buffet-style. Guests pick their own dishes, from black squid and tofu-tempeh to potato skewers and salted fish.",
       tools: [
         {
           name: "Woven Bamboo Basket",
@@ -359,7 +359,7 @@ export const CONTENT = {
       overline: "Tasting",
       title: "A Harmonious Sensory Profile",
       lead:
-        "A harmonious blend of fluffy, teak-scented rice with dishes that are savoury, sweet, spicy, and richly umami of Cirebon. Each bite offers a mix of textures — from soft rice to crisp, tender, or chewy sides.",
+        "A harmonious blend of fluffy, teak-scented rice with dishes that are savoury, sweet, spicy, and richly umami of Cirebon. Each bite offers a mix of textures from soft rice to crisp, tender, or chewy sides.",
       notes: [
         { label: "Fluffy Rice", desc: "Soft texture, warm grains that come together." },
         { label: "Teak Leaf Aroma", desc: "A signature fragrance, absent from ordinary wrapped rice." },
@@ -367,7 +367,7 @@ export const CONTENT = {
       ],
       aromaTitle: "Aroma",
       aromaBody:
-        "Enriched by spices and dishes such as black squid, sambal goreng, semur, tofu-tempeh, and potato skewers — all framed by the distinctive aroma of teak leaves as the traditional wrapper.",
+        "Enriched by spices and dishes such as black squid, sambal goreng, semur, tofu tempeh, and potato skewers, all framed by the distinctive aroma of teak leaves as the traditional wrapper.",
     },
     serving: {
       overline: "Serving",
@@ -401,7 +401,7 @@ export const CONTENT = {
       overline: "Nutrition Knowledge",
       title: "A Balanced, Flexible Plate",
       lead:
-        "Nasi Jamblang contains carbohydrates, protein, and fat from white rice and a variety of dishes. Its nutritional value is flexible — depending on the type and amount of sides chosen.",
+        "Nasi Jamblang contains carbohydrates, protein, and fat from white rice and a variety of dishes. Its nutritional value is flexible, depending on the type and amount of sides chosen.",
       tableTitle: "Nutrition Content (1 portion of rice + simple sides)",
       table: [
         { k: "Energy", v: "± 350–500 kcal" },
@@ -433,15 +433,15 @@ export const CONTENT = {
       quote:
         "The tradition we protect today is the identity we pass on tomorrow.",
       points: [
-        "Vendors remain committed to teak-leaf wrapping even as modern packaging grows easier to obtain — keeping Cirebon's culinary identity and heritage alive.",
+        "Vendors remain committed to teak-leaf wrapping even as modern packaging grows easier to obtain. Keeping Cirebon's culinary identity and heritage alive.",
         "Many stalls still uphold ancestral recipes and traditional cooking, including wood-fired stoves in family businesses, to preserve authentic flavour.",
         "Guests are encouraged to take only what they need and to value the variety of choices as a mark of respect for the work of artisans and cooks.",
       ],
     },
     footer: {
       brand: "The Gastronomy of Nasi Jamblang",
-      tagline: "Coastal Cirebon's culinary heritage — wrapped in teak leaves, kept through generations.",
-      rights: "Dedicated to the preservation of Nusantara cuisine.",
+      tagline: "Culinary Heritage of Coastal Cirebon",
+      rights: "Copyright © 2026 The Gastronomy of Nasi Jamblang – All Rights Reserved.",
     },
   },
 };

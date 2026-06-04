@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Leaf, Flame, Heart, Users, ChevronRight, Sparkles, Soup } from "lucide-react";
+import { Menu, X, Leaf, Flame, Heart, Users, ChevronRight, Sparkles, Soup, ArrowUp } from "lucide-react";
 import { CONTENT, IMAGES } from "@/data/content";
 import { Reveal } from "@/components/Reveal";
 
@@ -553,6 +553,13 @@ const Footer = ({ t }) => (
 export default function Landing() {
   const [lang, setLang] = useState("id");
   const t = CONTENT[lang];
+  const [showTop, setShowTop] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShowTop(window.scrollY > 400);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <div className="bg-[#FDFBF7] min-h-screen">
@@ -569,6 +576,15 @@ export default function Landing() {
         <Ethics t={t} />
       </main>
       <Footer t={t} />
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        aria-label="Scroll to top"
+        className={`fixed bottom-6 right-6 z-50 w-11 h-11 rounded-full bg-[#B8860B] text-white flex items-center justify-center shadow-lg transition-all duration-300 hover:bg-[#9a7009] ${
+          showTop ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
+        }`}
+      >
+        <ArrowUp size={20} />
+      </button>
     </div>
   );
 }
