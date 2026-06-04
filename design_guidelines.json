@@ -1,0 +1,119 @@
+{
+  "theme": "Light",
+  "archetype": "1 (Organic & Earthy)",
+  "vibe": "Warm, nostalgic, traditional Cirebon coastal culinary heritage. Earthy textures (bamboo, wood, teak leaf), editorial storytelling layout, emphasis on the organic beauty of the ingredients.",
+  "colors": {
+    "background": "#FDFBF7",
+    "surface": "#F2EBE1",
+    "primary": "#2C4C3B",
+    "secondary": "#8B3A23",
+    "accent": "#D19C4C",
+    "text_dark": "#2A2421",
+    "text_muted": "#6E635A",
+    "border": "#E5D9C5"
+  },
+  "typography": {
+    "heading_font": "Cormorant Garamond, serif",
+    "body_font": "Manrope, sans-serif",
+    "scale": {
+      "h1": "text-5xl md:text-7xl tracking-tighter leading-none font-medium",
+      "h2": "text-3xl md:text-5xl tracking-tight font-medium",
+      "h3": "text-xl md:text-3xl font-normal",
+      "body": "text-base md:text-lg leading-relaxed text-[#2A2421]",
+      "overline": "uppercase tracking-[0.2em] text-xs font-semibold text-[#8B3A23]"
+    }
+  },
+  "spacing_and_layout": {
+    "general": "Generous spacing. Use 'py-24 md:py-32' for major sections to let the storytelling breathe.",
+    "grid": "Bento grid protocol for Philosophy and Ingredients. Mode A (Tetris Grid) for visual tension.",
+    "containers": "Max-w-7xl mx-auto px-6 lg:px-12."
+  },
+  "motion": {
+    "scroll": "Smooth scrolling required (use framer-motion or simple CSS smooth scroll). Parallax on hero image.",
+    "reveal": "Soft vertical fade-ins for text blocks using framer-motion.",
+    "hover": "Images inside cards scale up 1.05x gracefully on hover. Border colors darken slightly."
+  },
+  "components_instructions": {
+    "navigation": "Sticky crystal glassmorphism header (bg-[#FDFBF7]/80 backdrop-blur-xl border-b border-[#E5D9C5]/50) containing logo, anchor links, and ID/EN language toggle.",
+    "cards": "Flat background with 1px delicate border (border-[#E5D9C5]). No heavy drop shadows. Padding inside cards must be generous (p-8).",
+    "nutrition_table": "Editorial-style table. No grid lines except minimal horizontal borders (border-b border-[#E5D9C5]). Clean typography, highlighting key macros.",
+    "buttons": "Primary buttons: bg-[#2C4C3B] text-white hover:bg-[#1E3629]. Secondary: border-2 border-[#2C4C3B] text-[#2C4C3B] hover:bg-[#2C4C3B] hover:text-white."
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "title": "HERO",
+      "layout": "Cinematic full-screen (min-h-[90vh]) split or overlay layout. Hero title 'GASTRONOMI NASI JAMBLANG'. Use gradient overlay from black/60 to transparent to ensure white text readability. Subtitle setting the Cirebon heritage context."
+    },
+    {
+      "id": "philosophy",
+      "title": "Philosophy, Tradition, Social",
+      "layout": "Bento Grid layout displaying 4 value cards: Daun Jati (Teak Leaf), Kebersamaan (Togetherness), Identitas Budaya (Cultural Identity), and Nilai Sosial. Use subtle icons or textured backgrounds."
+    },
+    {
+      "id": "ingredients",
+      "title": "Main Ingredients",
+      "layout": "Editorial gallery/grid highlighting: Daun Jati, Nasi Putih, Cumi Hitam (Hero Ingredient), Sambal Goreng. Image on top, elegant descriptive text below."
+    },
+    {
+      "id": "techniques",
+      "title": "Techniques & Methods",
+      "layout": "Split-screen layout (sticky image on one side, scrolling text on the other). Showcase Penyajian (buffet), Bakul Anyaman Bambu, Daun Jati, and Tungku Tradisional."
+    },
+    {
+      "id": "tasting",
+      "title": "Tasting & Sensory",
+      "layout": "Immersive dark section or rich terracotta background to contrast with the light theme. Annotated visuals highlighting rice texture, leaf aroma, and side dish textures."
+    },
+    {
+      "id": "serving",
+      "title": "Serving Aesthetics",
+      "layout": "Before/After or Side-by-side comparison slider/cards showing Traditional Teak Leaf wrapping vs Modern Plating."
+    },
+    {
+      "id": "experience",
+      "title": "Interactive Food Experience",
+      "layout": "Full width image of the 'Etalase' (display) with interactive hover points or simple narrative text about choosing side dishes and buyer-seller warmth."
+    },
+    {
+      "id": "nutrition",
+      "title": "Nutrition Knowledge",
+      "layout": "Clean, minimalist editorial table. Calories: 350-500, Protein: 12-20g, Fat: 8-18g, Carbs: 45-60g. Focus on legibility and Swiss-style alignment."
+    },
+    {
+      "id": "ethics",
+      "title": "Ethics & Etiquette",
+      "layout": "Centered storytelling layout. Emphasize sustainability (preserving teak leaves, traditional recipes, wood stoves) and 'take only what you need' ethos. Large blockquote typography."
+    }
+  ],
+  "media_urls": {
+    "hero_background": {
+      "url": "https://images.pexels.com/photos/37135571/pexels-photo-37135571.jpeg",
+      "description": "Authentic Indonesian meal wrapped in leaf to represent Nasi Jamblang"
+    },
+    "ingredient_squid": {
+      "url": "https://images.pexels.com/photos/19835566/pexels-photo-19835566.jpeg",
+      "description": "Spicy cooked squid representing Cumi Hitam"
+    },
+    "ingredient_rice_leaf": {
+      "url": "https://images.unsplash.com/photo-1658218615127-40b7068bbae5",
+      "description": "Traditional leaf wrapped food and rice on table"
+    },
+    "texture_teak_leaf": {
+      "url": "https://images.pexels.com/photos/34380890/pexels-photo-34380890.jpeg",
+      "description": "Detailed close-up of a green leaf for texture and accents"
+    },
+    "technique_wood_stove": {
+      "url": "https://images.unsplash.com/photo-1761772593493-23a630a333b3",
+      "description": "Woman cooking over a traditional wood fire stove"
+    },
+    "technique_bamboo_basket": {
+      "url": "https://images.unsplash.com/photo-1646170629004-b3c84a27fc17",
+      "description": "Close up view of woven bamboo basket"
+    },
+    "experience_display": {
+      "url": "https://images.pexels.com/photos/6872186/pexels-photo-6872186.jpeg",
+      "description": "Asian traditional kitchen scene, capturing warmth and tradition"
+    }
+  }
+}
