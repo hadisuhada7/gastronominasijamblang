@@ -407,7 +407,7 @@ const Tasting = ({ t }) => (
         <Reveal delay={0.2}>
           <div className="relative">
             <div className="rounded-3xl overflow-hidden border border-[#F2EBE1]/15">
-              <img src={IMAGES.display} alt="Tasting Nasi Jamblang" className="w-full h-[440px] object-cover" />
+              <img src={IMAGES.hero} alt="Tasting Nasi Jamblang" className="w-full h-[440px] object-cover" />
             </div>
             <div data-testid="tasting-aroma" className="absolute -bottom-6 -left-4 right-8 bg-[#2C4C3B] rounded-2xl p-6 shadow-xl border border-[#F2EBE1]/10">
               <h4 className="font-serif text-xl text-[#E6C58A]">{t.tasting.aromaTitle}</h4>
@@ -438,7 +438,7 @@ const Serving = ({ t }) => (
         {t.serving.cards.map((c, i) => (
           <Reveal key={c.tag} delay={i * 0.1}>
             <article data-testid={`serving-card-${i}`} className="relative overflow-hidden rounded-3xl border border-[#E5D9C5] group">
-              <img src={i === 0 ? IMAGES.riceLeaf : IMAGES.display} alt={c.title} className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700" />
+              <img src={i === 0 ? IMAGES.traditionalServing : IMAGES.modernServing} alt={c.title} className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="p-8">
                 <span className="overline-accent">{c.tag}</span>
                 <h3 className="font-serif text-2xl md:text-3xl text-[#2A2421] mt-2 mb-3">{c.title}</h3>
@@ -456,7 +456,7 @@ const Serving = ({ t }) => (
 const Experience = ({ t }) => (
   <section id="experience" data-testid="experience-section" className="relative py-28 md:py-40 overflow-hidden">
     <div className="absolute inset-0">
-      <img src={IMAGES.display} alt="Etalase" className="w-full h-full object-cover" />
+      <img src={IMAGES.woodStove} alt="Etalase" className="w-full h-full object-cover" />
       <div className="absolute inset-0 bg-[#1A140F]/75" />
     </div>
     <div className="relative max-w-4xl mx-auto px-6 lg:px-12 text-center text-[#F2EBE1]">

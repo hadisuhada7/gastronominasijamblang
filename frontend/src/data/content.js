@@ -1,13 +1,15 @@
 // Bilingual content for the Gastronomi Nasi Jamblang landing page.
 // Images sourced from design guidelines.
 export const IMAGES = {
-  hero: "https://images.pexels.com/photos/37135571/pexels-photo-37135571.jpeg",
-  squid: "https://images.pexels.com/photos/19835566/pexels-photo-19835566.jpeg",
-  riceLeaf: "https://images.unsplash.com/photo-1658218615127-40b7068bbae5",
-  teakLeaf: "https://images.pexels.com/photos/34380890/pexels-photo-34380890.jpeg",
-  woodStove: "https://images.unsplash.com/photo-1761772593493-23a630a333b3",
-  bambooBasket: "https://images.unsplash.com/photo-1646170629004-b3c84a27fc17",
-  display: "https://images.pexels.com/photos/6872186/pexels-photo-6872186.jpeg",
+  hero: "/images/nasi-jamblang.jpg",
+  squid: "/images/cumi-hitam.jpg",
+  riceLeaf: "/images/nasi-putih.jpg",
+  teakLeaf: "/images/daun-jati.jpg",
+  woodStove: "/images/tungku.jpg",
+  bambooBasket: "/images/keranjang-bambu.jpg",
+  display: "/images/sambal-goreng.jpg",
+  modernServing: "/images/modern-serving.jpg",
+  traditionalServing: "/images/traditional-serving.jpg",
 };
 
 export const CONTENT = {
